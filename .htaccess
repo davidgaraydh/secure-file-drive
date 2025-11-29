@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /proyectos_repositorio/secure-file-drive/
+
+# Redirigir todas las peticiones de API a index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+
+# Permitir acceso a archivos estáticos
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]

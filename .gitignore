@@ -1,30 +1,43 @@
+# Dependencias
 /vendor/
-node_modules/
-npm-debug.log
-yarn-error.log
 
-# Laravel 4 specific
-bootstrap/compiled.php
-app/storage/
+# Almacenamiento y base de datos
+/storage/
+*.sqlite
+*.db
 
-# Laravel 5 & Lumen specific
-public/storage
-public/hot
 
-# Laravel 5 & Lumen specific with changed public path
-public_html/storage
-public_html/hot
+config/config.php
+!config/config.example.php
 
-storage/*.key
+# Logs
+*.log
+/storage/*.log
+
+# Variables de entorno
 .env
-Homestead.yaml
-Homestead.json
-/.vagrant
-.phpunit.result.cache
+.env.local
+.env.*.local
 
-/public/build
-/storage/pail
-.env.backup
-.env.production
-.phpactor.json
-auth.json
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Scripts de desarrollo
+generate_passwords.php
+
+# Archivos temporales
+*.tmp
+*.cache
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de usuario
+*.user

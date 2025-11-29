@@ -1,0 +1,7 @@
+# Asegurar que config.php nunca se suba
+config/config.php export-ignore
+
+# Archivos binarios
+*.sqlite binary
+*.db binary
+

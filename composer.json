@@ -1,0 +1,14 @@
+{
+    "name": "secure-file-drive/mvp",
+    "description": "MVP de sistema tipo Drive con PHP puro",
+    "type": "project",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SecureFileDrive\\": "src/"
+        }
+    }
+}
+

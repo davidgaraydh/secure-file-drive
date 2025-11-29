@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure File Drive</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📁 Secure File Drive</h1>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span id="username"></span>
+                <button onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </header>
+
+        <!-- Login/Register Section -->
+        <div id="loginSection" class="section">
+            <div class="auth-container">
+                <!-- Login Card -->
+                <div class="login-card" id="loginCard">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="loginUsername">Usuario:</label>
+                            <input type="text" id="loginUsername" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Contraseña:</label>
+                            <input type="password" id="loginPassword" name="password" required>
+                        </div>
+                        <button type="submit">Iniciar Sesión</button>
+                    </form>
+                    <div id="loginError" class="error-message"></div>
+                    <p class="auth-switch">
+                        ¿No tienes cuenta? <a href="#" onclick="showRegister(); return false;">Regístrate aquí</a>
+                    </p>
+                </div>
+
+                <!-- Register Card -->
+                <div class="login-card" id="registerCard" style="display: none;">
+                    <h2>Crear Cuenta</h2>
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="registerUsername">Usuario:</label>
+                            <input type="text" id="registerUsername" name="username" required 
+                                   pattern="[a-zA-Z0-9_]{3,20}" 
+                                   title="Solo letras, números y guiones bajos (3-20 caracteres)">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerEmail">Email (opcional):</label>
+                            <input type="email" id="registerEmail" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Contraseña:</label>
+                            <input type="password" id="registerPassword" name="password" required 
+                                   minlength="6" 
+                                   title="Mínimo 6 caracteres">
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPasswordConfirm">Confirmar Contraseña:</label>
+                            <input type="password" id="registerPasswordConfirm" name="passwordConfirm" required>
+                        </div>
+                        <button type="submit">Registrarse</button>
+                    </form>
+                    <div id="registerError" class="error-message"></div>
+                    <p class="auth-switch">
+                        ¿Ya tienes cuenta? <a href="#" onclick="showLogin(); return false;">Inicia sesión aquí</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main App -->
+        <div id="appSection" class="section" style="display: none;">
+            <!-- Upload Section -->
+            <div class="card">
+                <h2>Subir Archivo</h2>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="fileInput">Seleccionar archivo:</label>
+                        <input type="file" id="fileInput" name="file" required>
+                        <div class="file-info" id="fileInfo"></div>
+                    </div>
+                    <button type="submit">Subir Archivo</button>
+                </form>
+                <div id="uploadMessage" class="message"></div>
+            </div>
+
+            <!-- Files List -->
+            <div class="card">
+                <h2>Mis Archivos</h2>
+                <div class="actions-bar">
+                    <button onclick="loadFiles()">Actualizar</button>
+                </div>
+                <div id="filesList" class="files-list">
+                    <p>Cargando archivos...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
+
